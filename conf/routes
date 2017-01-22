@@ -1,0 +1,10 @@
+GET             /                           controllers.Application.index
+
+GET             /rest/todos                 controllers.Application.getTodos
+POST            /rest/todo                  controllers.Application.createTodo
+PUT             /rest/todo/:id              controllers.Application.toggleFinished(id: Int)
+
+GET             /rest/hostname              controllers.Application.getHostname
+
+GET             /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET             /webjars/*file              controllers.WebJarAssets.at(file)

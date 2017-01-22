@@ -1,0 +1,17 @@
+version: '2'
+services:
+  database:
+    extends:
+      file: common.yml
+      service: database
+  todo:
+    extends:
+      file: common.yml
+      service: todo
+    command: /app/build.sh
+    expose:
+      - '9000'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - database

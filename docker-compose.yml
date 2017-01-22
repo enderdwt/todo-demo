@@ -1,0 +1,16 @@
+version: '2'
+services:
+  database:
+    extends:
+      file: common.yml
+      service: database
+  todo:
+    extends:
+      file: common.yml
+      service: todo
+    command: sbt -jvm-debug 9999 ~run
+    ports:
+      - '9000:9000'
+      - '9999:9999'
+    depends_on:
+      - database
